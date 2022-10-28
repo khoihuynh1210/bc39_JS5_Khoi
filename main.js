@@ -45,3 +45,45 @@ document.getElementById("btnTinhDiem").onclick = function () {
             document.getElementById("infoTD").innerHTML = "Bạn đã rớt. Do có điểm nhỏ hơn hoặc bằng 0";
         }
 }
+
+// bài 2
+
+const KW_1 = 500;
+const KW_2 = 650;
+const KW_3 = 850;
+const KW_4 = 1100;
+const KW_5 = 1300;
+
+var tienkw_1 = 0;
+var tienkw_2 = 0;
+var tienkw_3 = 0;
+var tienkw_4 = 0;
+var tongTien = 0;
+var tienkw_5 = 0;
+var dien = 0;
+
+document.getElementById("btnTinh2").onclick = () => {
+  var name = document.getElementById("name").value;
+  var kw = parseInt(document.getElementById("kw").value);
+
+  let price;
+
+  if (kw <= 50) price = kw * KW_1;
+  if (kw > 50 && kw <= 100) {
+    price = (kw - 50) * KW_2 + 50 * KW_1;
+  }
+  if (kw > 100 && kw <= 200) {
+    price = (kw - 100) * KW_3 + 50 * KW_2 + 50 * KW_1;
+  }
+  if (kw > 200 && kw <= 350) {
+    price = (kw - 200) * KW_4 + 100 * KW_3 + 50 * KW_2 + 50 * KW_1;
+  }
+  if (kw > 350) {
+    price = (kw - 350) * KW_5 + 200 * KW_4 + 100 * KW_3 + 50 * KW_2 + 50 * KW_1;
+  }
+
+
+  var result = "";
+  result += "<p>Họ tên: " + name + ", so tien can tra: " + price + " vnd </p>";
+  document.getElementById("infotinh2").innerHTML = result;
+};
